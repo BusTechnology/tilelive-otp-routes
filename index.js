@@ -64,6 +64,7 @@ class GeoJSONSource {
     .then((body) => {
       const shapes = groupBy(JSON.parse(body).data.trips, trip => trip.shapeId)
       const shapeIds = Object.keys(shapes)
+      shapeIds = shapeIds.filter(function(e){return e})
       const shapePromises = shapeIds.map(shapeId => request(tripRequiest(uri, shapes[shapeId][0].gtfsId)))
 
       Promise.all(shapePromises).then(geometries => {
