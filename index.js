@@ -52,7 +52,7 @@ class GeoJSONSource {
       url: uri,
       body: query,
       maxAttempts: 120,
-      retryDelay: 30000,
+      retryDelay: 1800000,
       method: 'POST',
       headers: {
         'Content-Type': 'application/graphql',
